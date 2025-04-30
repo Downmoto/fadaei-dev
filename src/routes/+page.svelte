@@ -1,5 +1,8 @@
 <script lang="ts">
-  let imageUrl: string = 'hero.jpg';
+  import { blur, fade } from 'svelte/transition';
+
+  let heroImageUrl: string = 'hero.jpg';
+  let nameSVGUrl: string = 'homeTextCondensed.svg';
 </script>
 
 <svelte:head>
@@ -10,11 +13,17 @@
   />
 </svelte:head>
 
-<div class="container">
-  <img src={imageUrl} alt="Abstract, floating boxes" />
+<div class="container" in:fade>
+  <div class="name">
+    <img src={nameSVGUrl} alt="Arad Fadaei" />
+  </div>
+  <a href="/projects">
+    <img src={heroImageUrl} alt="Abstract, floating boxes" />
+  </a>
 </div>
 
 <style>
+  /* Container Styles */
   .container {
     display: flex;
     justify-content: center;
@@ -23,18 +32,50 @@
     background-color: #000;
     margin: 0;
     overflow: hidden;
+    opacity: 1;
   }
 
+  /* Link Styles */
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    pointer-events: auto;
+  }
+
+  /* Image Styles */
   img {
     max-width: 100%;
     max-height: 100%;
     border-radius: 8px;
-    width: 50%;
+    transition: transform 0.3s ease;
   }
 
+  .container img:hover {
+    transform: scale(1.1);
+  }
+
+  /* Responsive Styles */
   @media (max-width: 480px) {
-    img {
-      width: 75%;
+    .container a {
+      width: 90%;
     }
+  }
+
+  /* Name Section Styles */
+  .name {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    pointer-events: none;
+  }
+
+  .name img {
+    filter: invert(1);
+    width: 40rem;
+    height: auto;
+    opacity: 0.4;
   }
 </style>

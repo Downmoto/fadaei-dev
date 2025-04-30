@@ -1,6 +1,7 @@
 <script lang="ts">
-  let { data, children } = $props();
-  let isMenuOpen = $state(false)
+  let { children } = $props();
+  let isMenuOpen = $state(false);
+  let hamburger = 'hamburger.svg';
 
   function toggleMenu() {
     isMenuOpen = !isMenuOpen;
@@ -11,7 +12,7 @@
   <nav>
     <a href="/" class="logo">Fadaei</a>
     <button class="hamburger" onclick={toggleMenu} aria-label="Toggle menu">
-      <img src="hamburger.svg" alt="Menu" width="24" height="24" />
+      <img src={hamburger} alt="Menu" width="24" height="24" />
     </button>
     <ul class:open={isMenuOpen}>
       <li><a href="/">Home</a></li>
@@ -27,10 +28,12 @@
 
 <style>
   :global(body) {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     background-color: #000;
     color: #fff;
   }
+
   .layout-container {
     display: flex;
     flex-direction: column;
@@ -42,7 +45,7 @@
 
   nav {
     color: #fff;
-    padding: 1rem 0 1rem 0;
+    padding: 1rem 0;
     display: flex;
     align-items: center;
     position: relative;
@@ -52,6 +55,7 @@
     margin-right: auto;
     text-decoration: none;
     color: #fff;
+    font-size: 1.5rem;
   }
 
   .logo:hover {
@@ -64,6 +68,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
+    filter: invert(1);
   }
 
   ul {
@@ -101,7 +106,7 @@
     overflow: auto;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     .hamburger {
       display: flex;
     }
