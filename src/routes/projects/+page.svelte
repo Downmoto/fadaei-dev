@@ -1,36 +1,7 @@
 <script lang="ts">
   import ProjectCard from '$lib/ProjectCard.svelte';
   import { fade } from 'svelte/transition';
-
-  let { data } = $props();
-
-  // Example projects array
-  const projects = [
-    {
-      title: 'Project 1',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      imageUrl: 'hero.jpg',
-      link: '/project1'
-    },
-    {
-      title: 'Project 2',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
-      imageUrl: 'hero.jpg',
-      link: '/project2'
-    },
-    {
-      title: 'Project 3',
-      description: 'Lorem ipsum dolor sit amet.',
-      imageUrl: 'hero.jpg',
-      link: '/project3'
-    },
-    {
-      title: 'Project 4',
-      description: 'Lorem ipsum dolor sit amet.',
-      imageUrl: 'hero.jpg',
-      link: '/project3'
-    }
-  ];
+  import { projects } from '$lib/projectsData';
 </script>
 
 <div class="container" in:fade>
@@ -38,8 +9,7 @@
     <ProjectCard
       title={project.title}
       description={project.description}
-      imageUrl={project.imageUrl}
-      link={project.link}
+      link="projects/{project.slug}"
     />
   {/each}
 </div>

@@ -1,7 +1,7 @@
 <script lang="ts">
+  import hamburgerSVG from '$lib/public/hamburger.svg'
   let { children } = $props();
   let isMenuOpen = $state(false);
-  let hamburger = 'hamburger.svg';
 
   function toggleMenu() {
     isMenuOpen = !isMenuOpen;
@@ -12,7 +12,7 @@
   <nav>
     <a href="/" class="logo">Fadaei</a>
     <button class="hamburger" onclick={toggleMenu} aria-label="Toggle menu">
-      <img src={hamburger} alt="Menu" width="24" height="24" />
+      <img src={hamburgerSVG} alt="Menu" width="24" height="24" />
     </button>
     <ul class:open={isMenuOpen}>
       <li><a href="/">Home</a></li>

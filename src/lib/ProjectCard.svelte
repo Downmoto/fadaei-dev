@@ -2,18 +2,15 @@
   let {
     title,
     description,
-    imageUrl,
     link
   }: {
     title: string;
     description: string;
-    imageUrl: string;
     link: string;
   } = $props();
 </script>
 
 <a class="card-container" href={link}>
-  <img src={imageUrl} alt={title} />
   <div class="text-container">
     <h1>{title}</h1>
     <h2 class="description">{description}</h2>
@@ -35,12 +32,6 @@
     color: inherit;
   }
 
-  img {
-    width: 10rem;
-    aspect-ratio: 5/3;
-    border-radius: 8px;
-    object-fit: cover;
-  }
 
   .text-container {
     text-align: left;
@@ -67,10 +58,6 @@
       flex-direction: column;
       align-items: flex-start;
       width: 90%;
-    }
-
-    img {
-      width: 100%;
     }
 
     .text-container {

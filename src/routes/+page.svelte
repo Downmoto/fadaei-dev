@@ -1,8 +1,7 @@
 <script lang="ts">
-  import { blur, fade } from 'svelte/transition';
-
-  let heroImageUrl: string = 'hero.jpg';
-  let nameSVGUrl: string = 'homeTextCondensed.svg';
+  import { fade } from 'svelte/transition';
+  import heroImage from '$lib/public/hero.jpg'
+  import nameSVG from '$lib/public/homeTextCondensed.svg'
 </script>
 
 <svelte:head>
@@ -15,10 +14,10 @@
 
 <div class="container" in:fade>
   <div class="name">
-    <img src={nameSVGUrl} alt="Arad Fadaei" />
+    <img src={nameSVG} alt="Arad Fadaei" />
   </div>
   <a href="/projects">
-    <img src={heroImageUrl} alt="Abstract, floating boxes" />
+    <img src={heroImage} alt="Abstract, floating boxes" />
   </a>
 </div>
 
