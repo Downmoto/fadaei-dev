@@ -9,6 +9,7 @@ export const load: PageLoad = ({ params }) => {
     return {
       title: project.title,
       content: project.content,
+      links: project.links
     };
   }
 
