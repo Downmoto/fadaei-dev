@@ -10,14 +10,14 @@
 
 <div class="layout-container">
   <nav>
-    <a href="/" class="logo">Fadaei</a>
+    <a href="/" class="logo">FADAEI</a>
     <button class="hamburger" onclick={toggleMenu} aria-label="Toggle menu">
       <img src={hamburgerSVG} alt="Menu" width="24" height="24" />
     </button>
     <ul class:open={isMenuOpen}>
-      <li><a href="/">Home</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="/about">About</a></li>
+      <li><a href="/">home</a></li>
+      <li><a href="/projects">projects</a></li>
+      <li><a href="/about">about</a></li>
     </ul>
   </nav>
 
