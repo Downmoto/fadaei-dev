@@ -2,6 +2,15 @@
   import ProjectCard from '$lib/ProjectCard.svelte';
   import { fade } from 'svelte/transition';
   import { projects } from '$lib/projectsData';
+  import { onDestroy } from 'svelte';
+
+  $effect (() => {
+    document.body.style.backgroundColor = '#345534';
+  })
+
+  onDestroy(() => {
+    document.body.style.backgroundColor = '#000'
+  })
 </script>
 
 <div class="container" in:fade>

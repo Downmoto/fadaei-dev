@@ -26,15 +26,30 @@
     max-width: 40rem;
     height: auto;
     padding: 1rem;
-    border-radius: 8px;
     gap: 1rem;
     text-decoration: none;
     color: inherit;
+    border-radius: 20px;
+    transition: box-shadow 1s ease;
   }
 
+  .card-container:hover {
+    border-radius: 20px;
+    background: linear-gradient(145deg, #2f4d2f, #385b38);
+    box-shadow:
+      13px 13px 25px #2a442a,
+      -13px -13px 25px #3e663e;
+    transition: box-shadow 1s ease;
+  }
 
   .text-container {
     text-align: left;
+    transition: transform 1s ease;
+  }
+
+  .text-container:hover {
+    transform: scale(1.005);
+    transition: transform 1s ease;
   }
 
   h1 {
@@ -44,7 +59,7 @@
 
   .description {
     font-size: 1rem;
-    color: #666;
+    color: #fff;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
