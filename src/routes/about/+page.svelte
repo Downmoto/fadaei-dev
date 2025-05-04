@@ -1,6 +1,9 @@
 <script lang="ts">
+  import { fade } from 'svelte/transition';
+
   let { data } = $props();
 </script>
 
-<h1>About</h1>
-<p>Welcome to the About page. Share your background and skills here.</p>
+<div class="about-container" in:fade>
+  
+</div>
