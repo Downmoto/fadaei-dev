@@ -1,4 +1,13 @@
-export const projects = [
+interface Project {
+  slug: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  links: string[];
+  content: string;
+}
+
+export const projects: Project[] = [
   {
     slug: 'pubsie',
     title: 'Pubsie',
