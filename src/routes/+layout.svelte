@@ -15,9 +15,9 @@
       <img src={hamburgerSVG} alt="Menu" width="24" height="24" />
     </button>
     <ul class:open={isMenuOpen}>
-      <li><a href="/">home</a></li>
-      <li><a href="/projects">projects</a></li>
-      <li><a href="/about">about</a></li>
+      <li><a href="/">HOME</a></li>
+      <li><a href="/projects">PROJECTS</a></li>
+      <li><a href="/about">ABOUT</a></li>
     </ul>
   </nav>
 
