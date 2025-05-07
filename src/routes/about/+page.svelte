@@ -36,7 +36,7 @@
       <h2>My Links.</h2>
       <p>Email me: <a href="mailto:arad@fadaei.dev" class="btn">arad@fadaei.dev</a></p>
       <p>Github: <a href="https://github.com/Downmoto" class="btn">@Downmoto</a></p>
-      <p>LinkedIn: <a href="/about" class="btn">NOTHING HERE YET!</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/arad-fadaei-a84484308/" class="btn">arad fadaei</a></p>
     </div>
   </div>
 </div>
