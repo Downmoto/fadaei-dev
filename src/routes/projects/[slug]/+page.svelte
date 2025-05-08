@@ -72,5 +72,9 @@
     a {
       color: white;
     }
+
+    p {
+      text-align: justify;
+    }
   }
 </style>
