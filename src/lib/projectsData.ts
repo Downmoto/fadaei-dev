@@ -2,7 +2,6 @@ interface Project {
   slug: string;
   title: string;
   description: string;
-  imageUrl: string;
   links: string[];
   content: string;
 }
@@ -12,65 +11,91 @@ export const projects: Project[] = [
     slug: 'pubsie',
     title: 'Pubsie',
     description: 'A JavaScript package for parsing EPUB files and extracting their contents.',
-    imageUrl: 'hero.jpg',
     links: ['https://github.com/Downmoto/pubsie', 'https://www.npmjs.com/package/pubsie'],
-    content: `<p>Pubsie is an advanced JavaScript library designed to simplify the process of working with EPUB files. 
-        It provides developers with a robust set of tools to parse, extract, and manipulate the contents of EPUB files, 
-        making it an ideal choice for building eBook readers, content management systems, or any application that 
-        requires handling EPUB data.</p>
+    content: `
+<section>
+  <p>
+    Pubsie is an open-source Node.js library I developed to simplify the process of parsing EPUB files.
+    It allows developers to efficiently extract essential components such as metadata, chapters,
+    and other resources from EPUB files within JavaScript applications.
+  </p>
 
-        <p>Pubsie is not maintained but a V2 is being developed and adheres to the EPUB specifications, ensuring compatibility with industry standards. 
-        For more information, visit the <a href="https://github.com/Downmoto/pubsie">GitHub repository</a>.</p>`
+  <p>
+    The library features an event-driven architecture, providing robust error handling and facilitating
+    asynchronous operations during the parsing process. To enhance performance, Pubsie includes a
+    caching mechanism that stores parsed data, reducing the need for repeated parsing and improving
+    data retrieval speed.
+  </p>
+
+  <p>
+    In building Pubsie, I focused on compliance with EPUB specifications to ensure broad compatibility
+    with standard-compliant files. The project is available on npm, complete with detailed documentation
+    and usage examples to assist developers in integrating it into their applications.
+  </p>
+</section>
+    `
   },
   {
-    slug: 'test2',
-    title: 'Project 2',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
-    imageUrl: 'hero.jpg',
-    links: ['/projects/test2'],
-    content: `Welcome to our blog. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. 
-        Integer tincidunt, eros ac ultricies tristique, nisi eros viverra augue, eu volutpat 
-        sapien libero nec dui. Sed at nisi nec arcu suscipit tincidunt. Nulla facilisi. 
-        Suspendisse potenti. Aenean nec eros vitae urna fermentum convallis. Curabitur 
-        vehicula, lorem nec sodales tristique, nulla justo tincidunt orci, in vehicula 
-        ligula nunc at eros. Proin ut ligula nec metus tincidunt convallis. Sed nec 
-        tincidunt nunc. Cras et ligula nec risus tincidunt tincidunt. Pellentesque 
-        habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-        Fusce id eros nec justo tincidunt tincidunt. Suspendisse potenti.`
+    slug: 'moneymap',
+    title: 'MoneyMap',
+    description: 'Budgeting application with AI financial assistant',
+    links: ['https://github.com/PRJ666Group1/MoneyMap'],
+    content: `
+<section>
+  <p><em>Capstone Project | Team Lead & Scrum Master</em></p>
+
+  <p>
+    Moneymap is a full-stack personal finance tracking application developed as part of a capstone project.
+    As the team lead and Scrum Master, I directed a team of developers and designers through the full Agile
+    development process, from planning and architecture to final delivery.
+  </p>
+
+  <p>
+    The core of Moneymap is an AI-powered assistant designed to help users make sense of their finances.
+    Users can interact with the assistant to ask questions, get personalized insights, and receive
+    context-aware summaries based on their spending habits, budgets, and trends. This conversational layer
+    made financial data more accessible and actionable.
+  </p>
+
+  <p>
+    In addition to leading sprints and team coordination, I contributed to both front-end and back-end development.
+    The application features automated expense categorization, budget tracking, and data visualizations to give
+    users a clear picture of their financial health. We conducted multiple rounds of usability testing to refine
+    the interface and improve the user experience.
+  </p>
+
+  <p>
+    Moneymap demonstrated our team's ability to integrate AI with financial tools to create a modern,
+    responsive application that turns complex data into clear, useful guidance.
+  </p>
+</section>
+    `
   },
   {
-    slug: 'test3',
-    title: 'Project 3',
-    description: 'Lorem ipsum dolor sit amet.',
-    imageUrl: 'hero.jpg',
-    links: ['/projects/test3'],
-    content: `Welcome to our blog. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. 
-        Integer tincidunt, eros ac ultricies tristique, nisi eros viverra augue, eu volutpat 
-        sapien libero nec dui. Sed at nisi nec arcu suscipit tincidunt. Nulla facilisi. 
-        Suspendisse potenti. Aenean nec eros vitae urna fermentum convallis. Curabitur 
-        vehicula, lorem nec sodales tristique, nulla justo tincidunt orci, in vehicula 
-        ligula nunc at eros. Proin ut ligula nec metus tincidunt convallis. Sed nec 
-        tincidunt nunc. Cras et ligula nec risus tincidunt tincidunt. Pellentesque 
-        habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-        Fusce id eros nec justo tincidunt tincidunt. Suspendisse potenti.`
-  },
-  {
-    slug: 'test4',
-    title: 'Project 4',
-    description: 'Lorem ipsum dolor sit amet.',
-    imageUrl: 'hero.jpg',
-    links: ['/projects/test4'],
-    content: `Welcome to our blog. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. 
-        Integer tincidunt, eros ac ultricies tristique, nisi eros viverra augue, eu volutpat 
-        sapien libero nec dui. Sed at nisi nec arcu suscipit tincidunt. Nulla facilisi. 
-        Suspendisse potenti. Aenean nec eros vitae urna fermentum convallis. Curabitur 
-        vehicula, lorem nec sodales tristique, nulla justo tincidunt orci, in vehicula 
-        ligula nunc at eros. Proin ut ligula nec metus tincidunt convallis. Sed nec 
-        tincidunt nunc. Cras et ligula nec risus tincidunt tincidunt. Pellentesque 
-        habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-        Fusce id eros nec justo tincidunt tincidunt. Suspendisse potenti.`
+    slug: 'markdown',
+    title: 'Markdown',
+    description: 'Programmatically write markdown to a file with Python',
+    links: ['https://github.com/Downmoto/markdown'],
+    content: `
+<section>
+  <p>
+    Markdown is a Python library I developed to facilitate the programmatic creation of Markdown files.
+    This tool simplifies the process of generating structured Markdown content, making it particularly
+    useful for automating documentation, reports, and other text-based outputs.
+  </p>
+
+  <p>
+    The library provides methods to add various Markdown elements such as headings, paragraphs, blockquotes,
+    and tables. Its design emphasizes modularity, allowing users to incorporate custom preprocessing functions
+    to modify content dynamically before writing to a file.
+  </p>
+
+  <p>
+    By leveraging Python's object-oriented capabilities, the library offers an intuitive API that developers
+    can easily integrate into their workflows. Comprehensive documentation and examples are available on the
+    project's GitHub repository, ensuring that users can quickly understand and utilize its features.
+  </p>
+</section>
+    `
   }
 ];

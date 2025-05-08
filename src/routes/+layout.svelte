@@ -12,13 +12,15 @@
   <nav>
     <a href="/" class="logo">FADAEI</a>
     <button class="hamburger" onclick={toggleMenu} aria-label="Toggle menu">
-      <img src={hamburgerSVG} alt="Menu" width="24" height="24" />
-    </button>
-    <ul class:open={isMenuOpen}>
-      <li><a href="/">HOME</a></li>
-      <li><a href="/projects">PROJECTS</a></li>
-      <li><a href="/about">ABOUT</a></li>
-    </ul>
+  <img src={hamburgerSVG} alt="Menu" width="24" height="24" />
+</button>
+
+<ul class={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
+  <li><a href="/">HOME</a></li>
+  <li><a href="/projects">PROJECTS</a></li>
+  <li><a href="/about">ABOUT</a></li>
+</ul>
+
   </nav>
 
   <main>
@@ -71,6 +73,38 @@
     filter: invert(1);
   }
 
+  /* New style for dropdown */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    width: 200px;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .mobile-menu.open {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mobile-menu li {
+    margin-bottom: 0.75rem;
+  }
+
+  .mobile-menu li:last-child {
+    margin-bottom: 0;
+  }
+
   ul {
     list-style: none;
     display: flex;
@@ -78,18 +112,6 @@
     padding: 0;
     margin: 0;
     justify-content: flex-end;
-  }
-
-  ul.open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #333;
-    padding: 1rem;
-    gap: 1rem;
-    border: 1px solid #fff;
   }
 
   a {
@@ -113,6 +135,25 @@
 
     ul {
       display: none;
+    }
+  }
+
+  @media (min-width: 601px) {
+    .mobile-menu {
+      display: flex !important;
+      position: static;
+      flex-direction: row;
+      background: none;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+      transform: none;
+      opacity: 1;
+      transition: none;
+    }
+
+    .mobile-menu li {
+      margin: 0;
     }
   }
 </style>
