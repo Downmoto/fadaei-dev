@@ -16,9 +16,9 @@
 </button>
 
 <ul class={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
-  <li><a href="/">HOME</a></li>
-  <li><a href="/projects">PROJECTS</a></li>
-  <li><a href="/about">ABOUT</a></li>
+  <li><a href="/" onclick={() => (isMenuOpen = false)}>HOME</a></li>
+  <li><a href="/projects" onclick={() => (isMenuOpen = false)}>PROJECTS</a></li>
+  <li><a href="/about" onclick={() => (isMenuOpen = false)}>ABOUT</a></li>
 </ul>
 
   </nav>
@@ -84,7 +84,6 @@
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
     padding: 1rem;
-    width: 200px;
     z-index: 1000;
     opacity: 0;
     transform: translateY(-10px);
