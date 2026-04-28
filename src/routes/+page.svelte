@@ -31,8 +31,9 @@
         <h3>Stack</h3>
         <ul>
           <li>Node.js, Next.js, Svelte, React</li>
+          <li>TypeScript, Python, Rust, C/C++</li>
+          <li>PyTorch, Transformers, OpenCV</li>
           <li>Flutter, Xcode, Android Studio</li>
-          <li>TypeScript, Rust, Python, C/C++</li>
         </ul>
       </div>
       <div>
@@ -41,6 +42,7 @@
           <li>Ship small, iterate fast</li>
           <li>Prefer useful over shiny</li>
           <li>Write for humans first</li>
+          <li>Own delivery end-to-end</li>
         </ul>
       </div>
     </div>
@@ -124,7 +126,7 @@
 
   .panel-subtle {
     border: 0;
-    border-left: 1px solid rgba(var(--mono-light-rgb), 0.2);
+    border-left: 1px solid color-mix(in srgb, var(--page-text) 20%, transparent);
     border-radius: 0;
     background: transparent;
     padding: 0.1rem 0 0.1rem 0.9rem;
@@ -195,7 +197,7 @@
 
   details {
     border: 0;
-    border-top: 1px solid rgba(var(--mono-light-rgb), 0.18);
+    border-top: 1px solid color-mix(in srgb, var(--page-text) 18%, transparent);
     border-radius: 0;
     padding: 0.45rem 0 0;
     background: transparent;
