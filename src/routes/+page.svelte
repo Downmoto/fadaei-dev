@@ -1,80 +1,281 @@
 <script lang="ts">
-  import { fade } from 'svelte/transition';
-  import heroImage from '$lib/public/hero.jpg'
-  import nameSVG from '$lib/public/homeTextCondensed.svg'
+  import { mlProjects, projects } from '$lib/projectsData';
+
+  function sanitizeLink(link: string): string {
+    try {
+      const url = new URL(link);
+      const host = url.hostname.replace('www.', '');
+      return host.split('.')[0];
+    } catch {
+      return link;
+    }
+  }
 </script>
 
 <svelte:head>
-  <title>Arad Fadaei</title>
+  <title>fadaei.dev</title>
   <meta
     name="description"
-    content="Welcome to Arad Fadaei's personal website. Explore projects, insights, and more about Arad's journey in development and technology."
+    content="single-page portfolio for arad fadaei with projects, bio, and contact links."
   />
 </svelte:head>
 
-<div class="container" in:fade>
-  <div class="name">
-    <img src={nameSVG} alt="Arad Fadaei" />
-  </div>
-  <a href="/projects">
-    <img src={heroImage} alt="Abstract, floating boxes" />
-  </a>
+<div class="page-wrap">
+  <section id="home" class="panel hero">
+    <h1>Arad Fadaei</h1>
+    <p>
+      Developer focused on useful software, clean implementation, and practical interfaces.
+    </p>
+    <div class="columns">
+      <div>
+        <h3>Stack</h3>
+        <ul>
+          <li>Node.js, Next.js, Svelte, React</li>
+          <li>TypeScript, Python, Rust, C/C++</li>
+          <li>PyTorch, Transformers, OpenCV</li>
+          <li>Flutter, Xcode, Android Studio</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Working Style</h3>
+        <ul>
+          <li>Ship small, iterate fast</li>
+          <li>Prefer useful over shiny</li>
+          <li>Write for humans first</li>
+          <li>Own delivery end-to-end</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="panel">
+    <h2>Projects</h2>
+    <div class="project-list">
+      {#each projects as project}
+        <article id={`project-${project.slug}`} class="project-item panel-subtle">
+          <header>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+          </header>
+          <div class="links">
+            {#each project.links as link}
+              <a
+                href={link}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`open ${sanitizeLink(link)} in a new tab`}
+              >
+                {sanitizeLink(link)}<span class="sr-only"> (opens in a new tab)</span>
+              </a>
+            {/each}
+          </div>
+          <details>
+            <summary>details for {project.title}</summary>
+            <div class="project-content">{@html project.content}</div>
+          </details>
+        </article>
+      {/each}
+    </div>
+  </section>
+
+  <section id="ml-projects" class="panel">
+    <h2>Machine Learning Projects</h2>
+    <div class="project-list">
+      {#each mlProjects as project}
+        <article id={`project-${project.slug}`} class="project-item panel-subtle">
+          <header>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+          </header>
+          <div class="links">
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`open ${sanitizeLink(project.link)} in a new tab`}
+            >
+              {sanitizeLink(project.link)}<span class="sr-only"> (opens in a new tab)</span>
+            </a>
+          </div>
+          <details>
+            <summary>details for {project.title}</summary>
+            <div class="project-content">{@html project.content}</div>
+          </details>
+        </article>
+      {/each}
+    </div>
+  </section>
+
+  <section id="contact" class="panel">
+    <h2>Contact</h2>
+    <ul class="contact-list">
+      <li><a href="mailto:arad@fadaei.dev">arad@fadaei.dev</a></li>
+      <li><a href="https://github.com/Downmoto" target="_blank" rel="noreferrer">github.com/downmoto</a></li>
+      <li>
+        <a href="https://www.linkedin.com/in/arad-fadaei-a84484308/" target="_blank" rel="noreferrer"
+          >linkedin profile</a
+        >
+      </li>
+    </ul>
+  </section>
 </div>
 
 <style>
-  /* Container Styles */
-  .container {
+  .page-wrap {
+    --section-gap: 3rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    background-color: #000;
+    flex-direction: column;
+    gap: var(--section-gap);
+    width: min(52rem, 100%);
+    margin: 0 auto;
+    padding: 0.5rem 0 2.5rem;
+  }
+
+  .panel {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+  }
+
+  .panel-subtle {
+    border: 0;
+    border-left: 1px solid color-mix(in srgb, var(--page-text) 20%, transparent);
+    border-radius: 0;
+    background: transparent;
+    padding: 0.1rem 0 0.1rem 0.9rem;
+  }
+
+  .hero h1 {
     margin: 0;
-    overflow: hidden;
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    color: var(--page-text);
+    font-weight: 400;
+    letter-spacing: 0.005em;
+  }
+
+  h2 {
+    margin: 0 0 0.85rem;
+    font-size: 1.05rem;
+    color: var(--page-text);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--page-text);
+    font-weight: 400;
+  }
+
+  p,
+  li,
+  a,
+  summary {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--page-text);
+  }
+
+  .project-list {
+    display: grid;
+    gap: 1.1rem;
+    margin-top: 0.15rem;
+  }
+
+  .project-item header p {
+    margin: 0.25rem 0 0;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin: 0.45rem 0 0.5rem;
+  }
+
+  .links a,
+  .contact-list a {
+    color: var(--page-text);
+    text-decoration: none;
     opacity: 1;
   }
 
-  /* Link Styles */
-  a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    pointer-events: auto;
+  .links a:hover,
+  .contact-list a:hover {
+    text-decoration: underline;
+    opacity: 1;
   }
 
-  /* Image Styles */
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+  details {
+    border: 0;
+    border-top: 1px solid color-mix(in srgb, var(--page-text) 18%, transparent);
+    border-radius: 0;
+    padding: 0.45rem 0 0;
+    background: transparent;
   }
 
-  .container img:hover {
-    transform: scale(1.1);
+  summary {
+    cursor: pointer;
+    color: var(--page-text);
   }
 
-  /* Responsive Styles */
-  @media (max-width: 480px) {
-    .container a {
-      width: 90%;
+  .project-content :global(section) {
+    margin-top: 0.4rem;
+  }
+
+  .project-content :global(p) {
+    margin: 0.45rem 0;
+  }
+
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  ul {
+    margin: 0.35rem 0 0;
+    padding-left: 1.1rem;
+  }
+
+  .contact-list {
+    list-style: disc;
+    padding-left: 1rem;
+  }
+
+  .project-content :global(p) {
+    opacity: 0.92;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 760px) {
+    .columns {
+      grid-template-columns: 1fr;
     }
-  }
 
-  /* Name Section Styles */
-  .name {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    pointer-events: none;
-  }
+    p,
+    li,
+    a,
+    summary {
+      font-size: 0.98rem;
+    }
 
-  .name img {
-    filter: invert(1);
-    width: 40rem;
-    height: auto;
-    opacity: 0.4;
+    .panel {
+      padding: 0;
+    }
   }
 </style>
