@@ -59,11 +59,18 @@
           </header>
           <div class="links">
             {#each project.links as link}
-              <a href={link} target="_blank" rel="noreferrer">{sanitizeLink(link)}</a>
+              <a
+                href={link}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`open ${sanitizeLink(link)} in a new tab`}
+              >
+                {sanitizeLink(link)}<span class="sr-only"> (opens in a new tab)</span>
+              </a>
             {/each}
           </div>
           <details>
-            <summary>details</summary>
+            <summary>details for {project.title}</summary>
             <div class="project-content">{@html project.content}</div>
           </details>
         </article>
@@ -81,10 +88,17 @@
             <p>{project.description}</p>
           </header>
           <div class="links">
-            <a href={project.link} target="_blank" rel="noreferrer">{sanitizeLink(project.link)}</a>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`open ${sanitizeLink(project.link)} in a new tab`}
+            >
+              {sanitizeLink(project.link)}<span class="sr-only"> (opens in a new tab)</span>
+            </a>
           </div>
           <details>
-            <summary>details</summary>
+            <summary>details for {project.title}</summary>
             <div class="project-content">{@html project.content}</div>
           </details>
         </article>
@@ -186,7 +200,7 @@
   .contact-list a {
     color: var(--page-text);
     text-decoration: none;
-    opacity: 0.92;
+    opacity: 1;
   }
 
   .links a:hover,
@@ -234,6 +248,18 @@
 
   .project-content :global(p) {
     opacity: 0.92;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   @media (max-width: 760px) {

@@ -47,8 +47,9 @@
   let { children } = $props();
 </script>
 
+<a class="skip-link" href="#main-content">skip to main content</a>
 <div class="layout-container">
-  <main>
+  <main id="main-content" tabindex="-1">
     {@render children()}
   </main>
 </div>
@@ -71,6 +72,30 @@
 
   :global(*) {
     box-sizing: border-box;
+  }
+
+  :global(a:focus-visible),
+  :global(button:focus-visible),
+  :global(summary:focus-visible) {
+    outline: 2px solid var(--page-text);
+    outline-offset: 2px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0.5rem;
+    z-index: 100;
+    padding: 0.5rem 0.75rem;
+    color: var(--page-bg);
+    background: var(--page-text);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+  }
+
+  .skip-link:focus {
+    left: 0.75rem;
   }
 
   .layout-container {
