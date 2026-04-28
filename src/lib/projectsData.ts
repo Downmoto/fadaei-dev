@@ -6,6 +6,14 @@ interface Project {
   content: string;
 }
 
+interface MlProject {
+  slug: string;
+  title: string;
+  description: string;
+  link: string;
+  content: string;
+}
+
 export const projects: Project[] = [
   {
     slug: 'pubsie',
@@ -94,6 +102,67 @@ export const projects: Project[] = [
     By leveraging Python's object-oriented capabilities, the library offers an intuitive API that developers
     can easily integrate into their workflows. Comprehensive documentation and examples are available on the
     project's GitHub repository, ensuring that users can quickly understand and utilize its features.
+  </p>
+</section>
+    `
+  }
+];
+
+export const mlProjects: MlProject[] = [
+  {
+    slug: 'nlp-phishguard',
+    title: 'nlp-PhishGuard',
+    description: 'Transformer-based phishing email classifier with token-level interpretability and CLI/web inference.',
+    link: 'https://github.com/Downmoto/nlp-PhishGuard',
+    content: `
+<section>
+  <p>
+    NLP-PhishGuard is a supervised natural language processing project focused on phishing email detection.
+    The core challenge addressed in this work is that many modern phishing messages are professionally written
+    and semantically similar to legitimate business communication, making rule-based filtering alone
+    unreliable in real-world settings.
+  </p>
+
+  <p>
+    The pipeline was designed end-to-end to be reproducible and practical, covering ingestion of labeled
+    corpora, preprocessing, stratified train-validation-test splitting, transformer fine-tuning,
+    checkpointing, and final evaluation. This structure made it possible to measure generalization on held-out
+    data while maintaining a clear engineering workflow for retraining and iteration.
+  </p>
+
+  <p>
+    Beyond predictive performance, the project emphasizes interpretability and usability. Token-level
+    attribution helps inspect why a message was flagged, and the final model is packaged for both command-line
+    usage and lightweight web-based inference, making it easier to integrate into practical security workflows.
+  </p>
+</section>
+    `
+  },
+  {
+    slug: 'cv-spac',
+    title: 'CV_SPAC',
+    description: 'End-to-end ALPR system for parking access control with plate detection, OCR, and resident matching.',
+    link: 'https://github.com/Downmoto/CV_SPAC',
+    content: `
+<section>
+  <p>
+    CV_SPAC is an end-to-end computer vision project for automated parking access control using license plate
+    recognition. The system is motivated by the limitations of manual checkpoints, keypad-based entry,
+    and card-based access methods, which add recurring operational overhead and can still fail in routine
+    use because of process friction or human error.
+  </p>
+
+  <p>
+    The implementation combines a lightweight plate detector, OCR with preprocessing, text normalization,
+    and resident-database matching with both exact and fuzzy strategies. This integration focus is central to
+    the project, since robust access-control behavior depends on pipeline quality across stages rather than
+    any single model metric.
+  </p>
+
+  <p>
+    The final output produces grant-or-deny decisions with confidence scores and supports reproducible
+    evaluation against labeled ground truth. The project is packaged as a configurable CLI pipeline so it can
+    be tested, tuned, and deployed with predictable behavior in real access-control scenarios.
   </p>
 </section>
     `
