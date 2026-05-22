@@ -16,6 +16,43 @@ interface MlProject {
 
 export const projects: Project[] = [
   {
+    slug: 'aethellib',
+    title: 'aethellib',
+    description: "Composable text generation primitives over target-specific TOML corpora with provenance tracking.",
+    links: ["https://github.com/Downmoto/aethellib", "https://crates.io/crates/aethellib"],
+    content: `
+<section>
+  <p>
+    aethellib is a Rust library for composable text generation from target-specific TOML corpora,
+    with built-in source provenance tracking. The library focuses on loading and validating attributed
+    documents into a single-target corpus, then pooling values by section and field so generation rules
+    can operate predictably and transparently.
+  </p>
+
+  <p>
+    The generation engine is built around composable rules rather than a rigid DSL. You can combine
+    primitives like literals, picks, and concatenation to construct outputs step by step, while the
+    engine stores prior results in context for reuse across rules. This makes complex generation flows
+    easier to reason about and extend.
+  </p>
+
+  <p>
+    A core differentiator is provenance as a first-class concept. Generated values preserve traceable
+    source metadata, so outputs can be inspected and explained back to the originating corpus values.
+    That traceability is especially useful when generation quality, data lineage, or debugging clarity
+    matters.
+  </p>
+
+  <p>
+    The project is currently at version <strong>0.8.4</strong> and under active development. It is
+    published on crates.io and can be installed with <code>cargo add aethellib</code>. For a complete
+    reference workflow, the repository includes a runnable example that demonstrate corpus loading,
+    rule composition, and context-based output retrieval in practice.
+  </p>
+</section>
+    `
+  },
+  {
     slug: 'pubsie',
     title: 'Pubsie',
     description: 'A JavaScript package for parsing EPUB files and extracting their contents.',
@@ -75,33 +112,6 @@ export const projects: Project[] = [
   <p>
     Moneymap demonstrated our team's ability to integrate AI with financial tools to create a modern,
     responsive application that turns complex data into clear, useful guidance.
-  </p>
-</section>
-    `
-  },
-  {
-    slug: 'markdown',
-    title: 'Markdown',
-    description: 'Programmatically write markdown to a file with Python',
-    links: ['https://github.com/Downmoto/markdown'],
-    content: `
-<section>
-  <p>
-    Markdown is a Python library I developed to facilitate the programmatic creation of Markdown files.
-    This tool simplifies the process of generating structured Markdown content, making it particularly
-    useful for automating documentation, reports, and other text-based outputs.
-  </p>
-
-  <p>
-    The library provides methods to add various Markdown elements such as headings, paragraphs, blockquotes,
-    and tables. Its design emphasizes modularity, allowing users to incorporate custom preprocessing functions
-    to modify content dynamically before writing to a file.
-  </p>
-
-  <p>
-    By leveraging Python's object-oriented capabilities, the library offers an intuitive API that developers
-    can easily integrate into their workflows. Comprehensive documentation and examples are available on the
-    project's GitHub repository, ensuring that users can quickly understand and utilize its features.
   </p>
 </section>
     `
