@@ -23,9 +23,13 @@
 <div class="page-wrap">
   <section id="home" class="panel hero">
     <h1>Arad Fadaei</h1>
-    <p>
-      Developer focused on useful software, clean implementation, and practical interfaces.
-    </p>
+    <a class="resume-download" href="/arad_fadaei_resume.pdf" download aria-label="Download résumé">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3v12m0 0 5-5m-5 5-5-5M5 21h14" />
+      </svg>
+      <span>Download CV</span>
+    </a>
+    <p>Developer focused on useful software, clean implementation, and practical interfaces.</p>
     <div class="columns">
       <div>
         <h3>Stack</h3>
@@ -110,10 +114,16 @@
     <h2>Contact</h2>
     <ul class="contact-list">
       <li><a href="mailto:arad@fadaei.dev">arad@fadaei.dev</a></li>
-      <li><a href="https://github.com/Downmoto" target="_blank" rel="noreferrer">github.com/downmoto</a></li>
       <li>
-        <a href="https://www.linkedin.com/in/arad-fadaei-a84484308/" target="_blank" rel="noreferrer"
-          >linkedin profile</a
+        <a href="https://github.com/Downmoto" target="_blank" rel="noreferrer"
+          >github.com/downmoto</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/arad-fadaei-a84484308/"
+          target="_blank"
+          rel="noreferrer">linkedin profile</a
         >
       </li>
     </ul>
@@ -152,6 +162,33 @@
     color: var(--page-text);
     font-weight: 400;
     letter-spacing: 0.005em;
+  }
+
+  .resume-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    height: 2rem;
+    margin-top: 0.35rem;
+    padding: 0 0.65rem;
+    border: 1px solid var(--page-text);
+    border-radius: 1rem;
+    color: var(--page-text);
+    text-decoration: none;
+  }
+
+  .resume-download:hover {
+    color: var(--page-bg);
+    background: var(--page-text);
+  }
+
+  .resume-download svg {
+    width: 1.15rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
   h2 {
