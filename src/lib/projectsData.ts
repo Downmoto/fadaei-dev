@@ -16,6 +16,44 @@ interface MlProject {
 
 export const projects: Project[] = [
   {
+    slug: 'ethos',
+    title: 'Ethos - AI agent runtime',
+    description:
+      'An actively developed Python runtime connecting language models to tools through a CLI and authenticated REST API.',
+    links: ['https://github.com/Downmoto/ethos'],
+    content: `
+<section>
+  <p>
+    Ethos is a Python runtime I’m developing to provide a shared foundation for AI agents. It brings model
+    integration, persistent sessions, tools, and configurable personas together around workspace-scoped
+    context. The runtime connects to OpenAI, Google, and Ollama models, with a command-line interface and an
+    authenticated REST API built on FastAPI.
+  </p>
+
+  <p>
+    The architecture separates agent execution and application state from the interfaces that use them. Both
+    the CLI and API operate through the same service layer, while capabilities contribute tools and
+    instructions through a common interface. This keeps behaviour consistent and allows the runtime to grow
+    without coupling its core logic to individual clients or tools.
+  </p>
+
+  <p>
+    A central focus is controlled, recoverable execution. Agents can inspect project files, request approval
+    for changes, and run approved commands within a native sandbox. Durable approval records and explicit
+    recovery for interrupted actions help prevent accidental replay, making permissions and failure handling
+    part of the runtime itself.
+  </p>
+
+  <p>
+    Ethos also includes an evaluation harness that exercises models against task-completion and security
+    scenarios using the real agent runtime. Reports track pass rates, tool usage, latency, and token consumption
+    to support evidence-based model comparisons. The project is currently in alpha, with ongoing work on the
+    core runtime and a longer-term direction towards workflows and orchestration.
+  </p>
+</section>
+    `
+  },
+  {
     slug: 'aethellib',
     title: 'aethellib',
     description: "Composable text generation primitives over target-specific TOML corpora with provenance tracking.",
